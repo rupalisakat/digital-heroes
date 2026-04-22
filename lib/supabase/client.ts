@@ -1,6 +1,14 @@
-﻿import { createBrowserClient } from '@supabase/ssr';
+﻿// 🔥 TEMP DISABLED SUPABASE (FOR DEPLOY)
 
-export const supabase = createBrowserClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
+export const supabase = {
+  auth: {
+    getUser: async () => ({ data: { user: null } }),
+  },
+  from: () => ({
+    select: () => ({
+      eq: () => ({
+        single: async () => ({ data: null }),
+      }),
+    }),
+  }),
+};
