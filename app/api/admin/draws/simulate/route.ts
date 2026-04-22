@@ -62,7 +62,7 @@ export async function POST(request: Request) {
       }
     );
 
-    const { drawType } = await request.json();
+    const { drawType }: { drawType: string } = await request.json();
 
     // 1. Generate winning numbers
     const winningNumbers = drawType === 'random'
